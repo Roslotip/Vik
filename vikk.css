@@ -1,0 +1,163 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    background-image:
+        url("img111.jpg"),
+        url("img222.jpg");
+
+    background-position:
+        left center,
+        right center;
+
+    background-size:
+        50% 100%,
+        50% 100%;
+
+    background-repeat: no-repeat;
+
+    background-attachment: fixed;
+
+    font-family: Arial, sans-serif;
+}
+
+
+/* NAPIS */
+
+h1 {
+    text-align: center;
+    color: red;
+    font-size: 50px;
+    margin-top: 15vh;
+
+    text-shadow:
+        0 0 10px white,
+        0 0 20px white;
+}
+
+
+/* PRZYCISK */
+
+.gallery-button {
+    display: block;
+
+    margin: 40px auto 25px;
+
+    padding: 15px 30px;
+
+    border: none;
+    border-radius: 50px;
+
+    background: #e91e63;
+    color: white;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-button:hover {
+    transform: scale(1.08);
+}
+
+
+/* GALERIA */
+
+.gallery-wrapper {
+    width: 100%;
+
+    overflow: hidden;
+
+    display: none;
+
+    padding: 20px 0;
+
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.gallery-wrapper.active {
+    display: block;
+}
+
+
+/* RUCHOMY KOLAŻ */
+
+.gallery {
+    display: flex;
+
+    gap: 20px;
+
+    width: max-content;
+
+    animation: przesuwanie 25s linear infinite;
+}
+
+
+/* ZDJĘCIA */
+
+.gallery img {
+    width: 300px;
+    height: 220px;
+
+    object-fit: cover;
+
+    border-radius: 20px;
+
+    flex-shrink: 0;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+
+/* ANIMACJA */
+
+@keyframes przesuwanie {
+
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(-50% - 10px));
+    }
+
+}
+
+
+/* TELEFON */
+
+@media (max-width: 600px) {
+
+    h1 {
+        font-size: 35px;
+        margin-top: 10vh;
+    }
+
+    .gallery-button {
+        font-size: 16px;
+        padding: 13px 25px;
+    }
+
+    .gallery img {
+        width: 230px;
+        height: 170px;
+    }
+
+    .gallery {
+        gap: 12px;
+
+        animation-duration: 20s;
+    }
+
+}
